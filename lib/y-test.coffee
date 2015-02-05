@@ -11,7 +11,7 @@ class TestConnector
   #
   constructor: (@id)->
     options =
-      syncMode: "syncAll"
+      syncMethod: "syncAll"
       role: "slave"
       user_id: @id # TODO: for now, we save the user_id under @id AND @user_id, but change this later..
       perform_send_again: false

@@ -7,7 +7,7 @@ TestConnector = (function() {
     var options;
     this.id = _at_id;
     options = {
-      syncMode: "syncAll",
+      syncMethod: "syncAll",
       role: "slave",
       user_id: this.id,
       perform_send_again: false
