@@ -1,0 +1,26 @@
+{
+  "name": "y-test",
+  "version": "0.4.0",
+  "homepage": "https://dadamonad.github.io/yjs/",
+  "authors": [
+    "Kevin Jahns <kevin.jahns@rwth-aachen.de>"
+  ],
+  "description": "Test Connector for Yjs",
+  "main": ["y-test.js", "build/node/y-test.js"],
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "connector",
+    "Yjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
