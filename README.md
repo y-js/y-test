@@ -25,3 +25,7 @@ bower install y-test --save
 var conn = new Y.Test(unique_id);
 ```
 
+## License
+Yjs is licensed under the [MIT License](./LICENSE.txt).
+
+<kevin.jahns@rwth-aachen.de>
