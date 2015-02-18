@@ -1,6 +1,4 @@
 
-_ = require "underscore"
-
 #
 # A trivial Connector that simulates network delay.
 #
@@ -81,7 +79,8 @@ class TestConnector
   flushOneRandom: ()->
     connlist = for cid,c of @receive_buffer
       cid
-    @flushOne connlist[(_.random 0, (connlist.length-1))]
+    i = Math.ceil(Math.random()*connlist.length-0.5)
+    @flushOne connlist[i]
 
   #
   # Flush all operations on every line.

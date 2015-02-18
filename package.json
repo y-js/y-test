@@ -4,7 +4,6 @@
   "description": "A Test Connector for Yjs",
   "main": "build/node/y-test.js",
   "dependencies": {
-    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "coffee-script": "^1.9.0",
