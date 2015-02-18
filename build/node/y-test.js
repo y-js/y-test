@@ -1,6 +1,4 @@
-var TestConnector, _;
-
-_ = require("underscore");
+var TestConnector;
 
 TestConnector = (function() {
   function TestConnector(_at_id) {
@@ -87,7 +85,7 @@ TestConnector = (function() {
   };
 
   TestConnector.prototype.flushOneRandom = function() {
-    var c, cid, connlist;
+    var c, cid, connlist, i;
     connlist = (function() {
       var _ref, _results;
       _ref = this.receive_buffer;
@@ -98,7 +96,8 @@ TestConnector = (function() {
       }
       return _results;
     }).call(this);
-    return this.flushOne(connlist[_.random(0, connlist.length - 1)]);
+    i = Math.ceil(Math.random() * connlist.length - 0.5);
+    return this.flushOne(connlist[i]);
   };
 
   TestConnector.prototype.flushAll = function() {
