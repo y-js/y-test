@@ -1,6 +1,6 @@
 {
   "name": "y-test",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A Test Connector for Yjs",
   "main": "build/node/y-test.js",
   "dependencies": {
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rwth-acis/y-test.git"
+    "url": "https://github.com/y-js/y-test.git"
   },
   "keywords": [
     "yjs",
@@ -31,7 +31,7 @@
   "author": "Kevin Jahns <kevin.jahns@rwth-aachen.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rwth-acis/y-test/issues"
+    "url": "https://github.com/y-js/y-test/issues"
   },
-  "homepage": "https://dadamonad.github.io/yjs/"
+  "homepage": "http://y-js.org"
 }

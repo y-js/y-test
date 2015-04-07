@@ -1,6 +1,7 @@
-This is an Test Connector for Yjs. It works on nodejs and in the browser.
+# Test Connector for [Yjs](https://github.com/y-js/yjs)
 
 This connector simulates a randomly long propagation delay. It is nice for testing Yjs.
+It works on nodejs and in the browser.
 
 ## Use it!
 Retrieve this with bower or npm.
