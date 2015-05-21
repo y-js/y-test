@@ -1,9 +1,9 @@
 var TestConnector;
 
 TestConnector = (function() {
-  function TestConnector(_at_id) {
+  function TestConnector(id) {
     var options;
-    this.id = _at_id;
+    this.id = id;
     options = {
       syncMethod: "syncAll",
       role: "slave",
@@ -23,7 +23,7 @@ TestConnector = (function() {
   }
 
   TestConnector.prototype.join = function(conn) {
-    var c, cid, _ref, _results;
+    var c, cid, ref, results;
     if (this.connections[conn.id] == null) {
       this.connections[conn.id] = {
         conn: conn
@@ -34,17 +34,17 @@ TestConnector = (function() {
       conn.flushAll();
       this.flushAll();
       conn.flushAll();
-      _ref = conn.connections;
-      _results = [];
-      for (cid in _ref) {
-        c = _ref[cid];
+      ref = conn.connections;
+      results = [];
+      for (cid in ref) {
+        c = ref[cid];
         if (this.connections[cid] == null) {
-          _results.push(this.join(c.conn));
+          results.push(this.join(c.conn));
         } else {
-          _results.push(void 0);
+          results.push(void 0);
         }
       }
-      return _results;
+      return results;
     }
   };
 
@@ -53,32 +53,32 @@ TestConnector = (function() {
   };
 
   TestConnector.prototype.send = function(uid, message) {
-    var rb, _name;
+    var name1, rb;
     if ((message.sync_step != null) && false) {
       return this.receiveMessage(uid, message);
     } else {
       rb = this.connections[uid].conn.receive_buffer;
-      if (rb[_name = this.id] == null) {
-        rb[_name] = [];
+      if (rb[name1 = this.id] == null) {
+        rb[name1] = [];
       }
       return rb[this.id].push(message);
     }
   };
 
   TestConnector.prototype.broadcast = function(message) {
-    var c, name, _ref, _results;
-    _ref = this.connections;
-    _results = [];
-    for (name in _ref) {
-      c = _ref[name];
-      _results.push(this.send(name, message));
+    var c, name, ref, results;
+    ref = this.connections;
+    results = [];
+    for (name in ref) {
+      c = ref[name];
+      results.push(this.send(name, message));
     }
-    return _results;
+    return results;
   };
 
   TestConnector.prototype.flushOne = function(uid) {
-    var message, _ref;
-    if (((_ref = this.receive_buffer[uid]) != null ? _ref.length : void 0) > 0) {
+    var message, ref;
+    if (((ref = this.receive_buffer[uid]) != null ? ref.length : void 0) > 0) {
       message = this.receive_buffer[uid].shift();
       return this.receiveMessage(uid, message);
     }
@@ -87,26 +87,26 @@ TestConnector = (function() {
   TestConnector.prototype.flushOneRandom = function() {
     var c, cid, connlist, i;
     connlist = (function() {
-      var _ref, _results;
-      _ref = this.receive_buffer;
-      _results = [];
-      for (cid in _ref) {
-        c = _ref[cid];
-        _results.push(cid);
+      var ref, results;
+      ref = this.receive_buffer;
+      results = [];
+      for (cid in ref) {
+        c = ref[cid];
+        results.push(cid);
       }
-      return _results;
+      return results;
     }).call(this);
     i = Math.ceil(Math.random() * connlist.length - 0.5);
     return this.flushOne(connlist[i]);
   };
 
   TestConnector.prototype.flushAll = function() {
-    var message, messages, n, _i, _len, _ref;
-    _ref = this.receive_buffer;
-    for (n in _ref) {
-      messages = _ref[n];
-      for (_i = 0, _len = messages.length; _i < _len; _i++) {
-        message = messages[_i];
+    var j, len, message, messages, n, ref;
+    ref = this.receive_buffer;
+    for (n in ref) {
+      messages = ref[n];
+      for (j = 0, len = messages.length; j < len; j++) {
+        message = messages[j];
         this.receiveMessage(n, message);
       }
     }
